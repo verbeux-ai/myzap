@@ -137,5 +137,9 @@ Router.post('/sendVideo', checkAPITokenMiddleware, checkParams, checkNumber, Men
 Router.post('/getAllLabels', checkAPITokenMiddleware, checkParams, Business.getAllLabels);
 Router.post('/addNewLabel', checkAPITokenMiddleware, checkParams, Business.addNewLabel);
 Router.post('/addOrRemoveLabels', checkAPITokenMiddleware, checkParams, checkNumber, Business.addOrRemoveLabels);
+Router.post('/addProduct', checkAPITokenMiddleware, checkParams, Business.addProduct);
+Router.post('/removeProduct', checkAPITokenMiddleware, checkParams, Business.deleteProduct);
+Router.put('/updateProducts', checkAPITokenMiddleware, checkParams, Business.updateProduct);
+Router.get('/listProducts', checkAPITokenMiddleware, checkParams, checkNumber, Business.getProducts);
 
 module.exports = Router;
