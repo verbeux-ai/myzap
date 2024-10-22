@@ -140,6 +140,6 @@ Router.post('/addOrRemoveLabels', checkAPITokenMiddleware, checkParams, checkNum
 Router.post('/addProduct', checkAPITokenMiddleware, checkParams, Business.addProduct);
 Router.post('/removeProduct', checkAPITokenMiddleware, checkParams, Business.deleteProduct);
 Router.put('/updateProducts', checkAPITokenMiddleware, checkParams, Business.updateProduct);
-Router.get('/listProducts', checkAPITokenMiddleware, checkParams, checkNumber, Business.getProducts);
+Router.post('/listProducts', checkAPITokenMiddleware, checkParams, Business.getProducts);
 
 module.exports = Router;

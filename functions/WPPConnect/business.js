@@ -53,7 +53,7 @@ module.exports = class Business {
 
         try {
             let data = await Sessions.getClient(req.body.session)
-            let response = await data.client.addOrRemoveLabels([req.body.number+'@c.us'], req.body.actions)
+            let response = await data.client.addOrRemoveLabels([req.body.number + '@c.us'], req.body.actions)
 
             res.status(200).json({
                 "result": 200,
@@ -76,7 +76,16 @@ module.exports = class Business {
 
         try {
             let data = await Sessions.getClient(req.body.session)
-            await data.client.createProduct(req.body)
+            console.log(req.body)
+            await data.client.createProduct(
+                req.body?.name,
+                req.files?.img?.data?.toString('base64'),
+                req.body?.description,
+                req.body?.price,
+                req.body?.isHidden,
+                req.body?.url,
+                req.body?.id,
+            )
 
             res.status(200).json({
                 "result": 200,
@@ -139,7 +148,7 @@ module.exports = class Business {
     static async getProducts(req, res) {
         try {
             let data = await Sessions.getClient(req.body.session)
-            await data.client.getProducts(req.body.number+'@c.us', req?.query?.quantity)
+            await data.client.getProducts(req.body.number + '@c.us', req?.query?.quantity)
 
             res.status(200).json({
                 "result": 200,
@@ -147,7 +156,7 @@ module.exports = class Business {
 
         } catch (error) {
 
-            logger.error(`Error on del product: ${error?.message}`)
+            logger.error(`Error on get product: ${error}`)
 
             res.status(400).json({
                 response: false,
