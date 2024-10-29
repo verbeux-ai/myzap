@@ -410,13 +410,14 @@ module.exports = class Mensagens {
     }
 
     static async sendImage(req, res) {
-
         try {
 
-            const {session, path, number, caption, isViewOnce} = req?.body;
+            const {session, path, fileName = "image.png", number, caption} = req?.body;
 
-            let device = await Sessions?.getClient(session)
+            let device = await Sessions?.getClient(session);
             let client = device.client;
+
+            let phone = await Cache?.get(number)
 
             if (!path) {
                 res?.status(400)?.send({
@@ -426,11 +427,7 @@ module.exports = class Mensagens {
                 });
             }
 
-            let phone = await Cache?.get(number)
-
-            await Sessions?.sleep(config.time_typing);
-
-            let response = await client?.sendImage(phone, path, 'imagem', caption, '', isViewOnce)
+            let response = await client?.sendImage(phone, path, fileName, caption)
 
             res?.status(200)?.json({
                 result: 200,
