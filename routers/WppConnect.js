@@ -132,6 +132,7 @@ Router.post('/deleteSession', checkAPITokenMiddleware, checkParams, Sessions.del
 // #swagger.tags = ['Messages']
 Router.post('/sendText', checkAPITokenMiddleware, checkParams, checkNumber, Mensagens.sendText);
 Router.post('/sendImage', checkAPITokenMiddleware, checkParams, checkNumber, Mensagens.sendImage);
+Router.post('/sendFileLocal', checkAPITokenMiddleware, checkParams, checkNumber, Mensagens.sendFileLocal);
 Router.post('/sendVideo', checkAPITokenMiddleware, checkParams, checkNumber, Mensagens.sendVideo);
 
 // Business
