@@ -84,11 +84,12 @@ module.exports = class Mensagens {
             let data = await Sessions?.getClient(session)
             let phone = await Cache?.get(number)
 
-            const response = await data?.client?.startTyping(phone, time);
+            data?.client?.startTyping(phone, time).catch(e => {
+                logger.error(`error start typing: ${error?.message}`)
+            });
 
             res?.status(200)?.json({
                 result: 200,
-                data: response,
             });
 
         } catch (error) {
