@@ -133,6 +133,7 @@ Router.post('/deleteSession', checkAPITokenMiddleware, checkParams, Sessions.del
 Router.post('/sendText', checkAPITokenMiddleware, checkParams, checkNumber, Mensagens.sendText);
 Router.post('/sendImage', checkAPITokenMiddleware, checkParams, checkNumber, Mensagens.sendImage);
 Router.post('/sendFileLocal', checkAPITokenMiddleware, checkParams, checkNumber, Mensagens.sendFileLocal);
+Router.post('/sendFile', checkAPITokenMiddleware, checkParams, checkNumber, Mensagens.sendFile);
 Router.post('/sendVideo', checkAPITokenMiddleware, checkParams, checkNumber, Mensagens.sendVideo);
 
 // Business

@@ -570,10 +570,11 @@ module.exports = class Mensagens {
             let client = device.client;
 
             let phone = await Cache?.get(number)
+            const splitPath = path?.split("/")
 
             let options = req?.body?.options || {
                 "createChat": true,
-                "filename": "file",
+                "filename": splitPath[splitPath?.length-1] ?? 'arquivo',
             };
 
             let response = await client?.sendFile(phone, path, options)
