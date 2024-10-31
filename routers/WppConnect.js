@@ -135,6 +135,8 @@ Router.post('/sendImage', checkAPITokenMiddleware, checkParams, checkNumber, Men
 Router.post('/sendFileLocal', checkAPITokenMiddleware, checkParams, checkNumber, Mensagens.sendFileLocal);
 Router.post('/sendFile', checkAPITokenMiddleware, checkParams, checkNumber, Mensagens.sendFile);
 Router.post('/sendVideo', checkAPITokenMiddleware, checkParams, checkNumber, Mensagens.sendVideo);
+Router.post('/startTyping', checkAPITokenMiddleware, checkParams, checkNumber, Mensagens.startTyping);
+Router.post('/stopTyping', checkAPITokenMiddleware, checkParams, checkNumber, Mensagens.stopTyping);
 
 // Business
 Router.post('/getAllLabels', checkAPITokenMiddleware, checkParams, Business.getAllLabels);
