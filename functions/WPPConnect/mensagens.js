@@ -85,7 +85,7 @@ module.exports = class Mensagens {
             let phone = await Cache?.get(number)
 
             data?.client?.startTyping(phone, time).catch(e => {
-                logger.error(`error start typing: ${error?.message}`)
+                logger.error(`error start typing: ${e?.message}`)
             });
 
             res?.status(200)?.json({
